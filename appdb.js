@@ -48,8 +48,10 @@ app.get('/world/detail', function(req, res) {
       ctry.getWorld(pays, function(retour) {
          data = retour;
          result = eval('retour.'+det);
-         //console.log(result)
-         res.status(200).send(result);
+         if (det=='update')
+            res.status(200).send({"update":result});
+         else //console.log(result)
+            res.status(200).send(result);
       });
    }
    else {
